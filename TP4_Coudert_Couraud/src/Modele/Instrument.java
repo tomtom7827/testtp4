@@ -6,6 +6,8 @@
 package Modele;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -28,5 +30,10 @@ public class Instrument {
     
     public ArrayList<Fonds> getFonds() {
         return fonds;
+    }
+    public void TriMontant()
+    {
+        
+        Collections.sort(fonds);
     }
 }
