@@ -54,6 +54,7 @@ public class Main {
         HashMap<String, Instrument> hmap2 = new HashMap<String, Instrument>();
         PorteFeuille p = new PorteFeuille(hmap, hmap2);
         String newKey = new String();
+        Instrument i = new Instrument();
         switch(choix) {
             case 1:
                 System.out.println("Ajouter un fond ? Entrez le nom, puis le montant");
@@ -74,8 +75,23 @@ public class Main {
                 }
                 break;
             case 3:
-                break;
+                System.out.println("Ajouter un instrument ? Entrez le nom, puis le montant du fond de 'linstrument");
+                newKey = sc.next();
+                f.setAmount(sc.nextDouble());
+                i.ajouterFonds(f);
+                 p.ajouterFonds(newKey, f);
+                 break;
             case 4:
+               try {
+               System.out.println("Rechercher un instrument ? Entrez la clé :");
+               newKey = sc.next();
+               p.rechercheInstrument(newKey);
+               } catch (InstrumentInexistantException e){
+                   System.out.println("Instrument Inexistant, création en cours...");
+                   System.out.println("Entrez le montant de la nouvelle clé :");
+                   f.setAmount(sc.nextDouble());
+                   p.ajouterFonds(newKey, f);
+                }
                 break;
             case 5:
                 break;
