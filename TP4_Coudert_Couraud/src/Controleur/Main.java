@@ -21,7 +21,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FondsInexistantException, FondsExistantException {
+    public static void main(String[] args) throws FondsInexistantException, FondsExistantException, InstrumentInexistantException {
         // Init
         Scanner sc = new Scanner(System.in);
         int quit =0;
@@ -33,6 +33,8 @@ public class Main {
             System.out.println("2 : Rechercher un fond");
             System.out.println("3 : Ajouter un instrument");
             System.out.println("4 : Rechercher un instrument");
+            System.out.println("6: Supprimer un Fond du porteFeuille");
+            System.out.println("7: Supprimer un Instrument du porteFeuille");
             System.out.println("5 : Quittez");
             System.out.println("Que voulez vous faire ? ");
             choix = sc.nextInt();
@@ -46,7 +48,7 @@ public class Main {
         
     }
     
-    public void menu(int choix) throws FondsExistantException {
+    public void menu(int choix) throws FondsExistantException, InstrumentInexistantException, FondsInexistantException {
         Scanner sc = new Scanner(System.in);
         Fonds f = new Fonds();
         ArrayList<Fonds> a = new ArrayList<Fonds>();
@@ -94,6 +96,16 @@ public class Main {
                 }
                 break;
             case 5:
+                break;
+            case 6:
+                System.out.println("Suppriemr un Fonds ? Entrez la clé");
+                newKey = sc.next();
+                p.supprimerFonds(newKey);
+                break;
+            case 7:
+                System.out.println("Supprimer un instrument ? Entrez la clé");
+                newKey = sc.next();
+                p.supprimerInstrument(newKey);
                 break;
                  
                 

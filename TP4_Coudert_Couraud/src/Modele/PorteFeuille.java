@@ -67,4 +67,23 @@ public class PorteFeuille {
         System.out.println("L'instrument a été ajouté correctement au porte feuille");
         }
     }
+        public void supprimerFonds(String key) throws FondsInexistantException {
+        if(fonds.containsKey(key)){
+           fonds.remove(key);
+        }
+        else {
+            throw new FondsInexistantException("Object Innexistant");
+        }
+    }
+    
+    public void supprimerInstrument(String key) throws InstrumentInexistantException {
+        if(instrument.containsKey(key)){
+           instrument.remove(key); 
+        }
+        else {
+            throw new InstrumentInexistantException("Object Innexistant");
+        }
+        
+        
+    }
 }

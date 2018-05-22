@@ -14,5 +14,8 @@ public class InstrumentInexistantException extends Exception {
     public InstrumentInexistantException() {
         System.out.println("Instrument inexistant !");
     }
+        public InstrumentInexistantException(String msg) {
+    super(msg);
+}
     
 }
