@@ -15,8 +15,8 @@ import java.util.HashMap;
  * @author Aurélien
  */
 public class PorteFeuille {
-    private HashMap<String, Fonds> fonds;
-    private HashMap<String, Instrument> instrument;
+    public HashMap<String, Fonds> fonds;
+    public HashMap<String, Instrument> instrument;
     
     public PorteFeuille() {
         fonds = new HashMap<String, Fonds>();
@@ -82,8 +82,8 @@ public class PorteFeuille {
         }
         else {
             throw new InstrumentInexistantException("Object Innexistant");
-        }
-        
-        
+        }  
     }
+    
+    
 }

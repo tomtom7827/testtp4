@@ -5,10 +5,24 @@
  */
 package Vue;
 
+import Modele.Instrument;
+import Modele.PorteFeuille;
+import java.util.Map;
+
 /**
  *
  * @author Aurélien
  */
 public class ModeConsole {
     
+    public ModeConsole() {
+        
+    }
+    
+    public void afficherInstrument(PorteFeuille p) {
+        System.out.println("Affichage des instruments du portefeuille");
+       for(Map.Entry myhash : p.instrument.entrySet()) {
+           System.out.println("Clé : " + myhash.getKey() + " , Valeur : " + myhash.getValue());
+       }
+    } 
 }
