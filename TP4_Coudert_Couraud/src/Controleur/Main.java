@@ -6,6 +6,7 @@
 package Controleur;
 
 import Modele.*;
+import Vue.ModeConsole;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -21,7 +22,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FondsInexistantException, FondsExistantException, InstrumentInexistantException {
+    public static void main(String[] args) throws FondsInexistantException, FondsExistantException, InstrumentInexistantException, InstrumentExistantException {
         // Init
         Scanner sc = new Scanner(System.in);
         int quit =0;
@@ -35,6 +36,7 @@ public class Main {
             System.out.println("4 : Rechercher un instrument");
             System.out.println("6: Supprimer un Fond du porteFeuille");
             System.out.println("7: Supprimer un Instrument du porteFeuille");
+            System.out.println("8: Affichage Instrument du porteFeuille");
             System.out.println("5 : Quittez");
             System.out.println("Que voulez vous faire ? ");
             choix = sc.nextInt();
@@ -48,7 +50,7 @@ public class Main {
         
     }
     
-    public void menu(int choix) throws FondsExistantException, InstrumentInexistantException, FondsInexistantException {
+    public void menu(int choix) throws FondsExistantException, InstrumentInexistantException, FondsInexistantException, InstrumentExistantException {
         Scanner sc = new Scanner(System.in);
         Fonds f = new Fonds();
         ArrayList<Fonds> a = new ArrayList<Fonds>();
@@ -57,6 +59,11 @@ public class Main {
         PorteFeuille p = new PorteFeuille(hmap, hmap2);
         String newKey = new String();
         Instrument i = new Instrument();
+        f.setAmount(1000);
+        p.ajouterFonds("1", f);
+        i.ajouterFonds(f);
+        p.ajouterInstrument("1", i);
+        
         switch(choix) {
             case 1:
                 System.out.println("Ajouter un fond ? Entrez le nom, puis le montant");
@@ -107,6 +114,11 @@ public class Main {
                 newKey = sc.next();
                 p.supprimerInstrument(newKey);
                 break;
+            case 8:
+                ModeConsole console = new ModeConsole();
+                console.afficherInstrument(p);
+                break;
+                
                  
                 
         }
